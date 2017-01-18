@@ -1,0 +1,51 @@
+OpenGL + GLU + GLUI + GLUT Libraries:
+-------------------------------------
+DLLs - Place them all in your Windows system folder
+	eg. if you have Win9x/Me, put them in C:\Windows\System\
+	eg. if you have winnt/2k/xp, put them in C:\windows\system32\
+
+LIBs - Place them in your Visual Studio lib folder
+	eg. VisualStudio6 users ->
+		C:\Program Files\Microsoft Visual Studio\VC98\lib
+
+Includes - Place them in your Visual Studio Include folder
+	eg. VisualStudio6 users ->
+		C:\Program Files\Microsoft Visual Studio\VC98\Include\
+		C:\Program Files\Microsoft Visual Studio\VC98\Include\GL
+		(i like to keep two copies)
+
+For people who use Borland C++, you'll use the glut.def file somewhere
+
+
+GLUI Setup: (alternative GUI from SG)
+-----------
+GLUI will have to be linked in order for it to work.
+Go to Project --> Settings -> Link
+
+Scroll to the end of the "Object/library models:" text box
+and add the following additional libraries:   
+
+	glu32.lib glut32.lib opengl32.lib glaux32.lib 
+
+
+Extra stuff:
+-----------
+
+If you want to get rid of the console window
+(the black text window that appears when you run your program):
+	1. Use menu to go to Project... Settings... Link... Project Options
+	2. In the Project Options field find:
+	
+		/subsystem:console (it's one of the last lines)
+
+	change it to
+
+		/subsystem:windows /entry:mainCRTStartup
+
+Note that error messages and output will be lost (unless redirected)
+if you get rid of the console window.
+
+----------------
+
+To make real win32 applications (not use GLUI):
+go to http://nehe.gamedev.net/tutorials/lesson01.asp
